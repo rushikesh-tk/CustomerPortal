@@ -1,38 +1,100 @@
 .App {
-  text-align: center;
+  background-color: gray;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (min-width: 768px) {
+  .App {
+    flex-direction: row;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar-main {
+  background-color: pink;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+@media (min-width: 768px) {
+  .sidebar-main {
+    width: 25%;
+    height: 100vh;
+  }
+}
+
+.item-main {
+  background-color: aqua;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.title,
+.sub-title {
+  margin-bottom: 0.5rem;
   display: flex;
+}
+
+.header {
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+.info-main {
+  background-color: skyblue;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@media (min-width: 768px) {
+  .info-main {
+    width: 75%;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.photos-main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+@media (min-width: 1024px) {
+  .photos-main {
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* Photo items */
+.image-main {
+  height: 9rem;
+  border-radius: 10px;
+  width: 80%;
+  object-fit: cover;
 }
